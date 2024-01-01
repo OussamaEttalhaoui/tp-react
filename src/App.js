@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React, { useState } from 'react';
+import GuestBookApp from "./GuestBookApp";
+import Profile from "./Profile";
+import TaskList from "./TaskList";
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const [tasks, setTasks] = useState([
+{ id: 1, text: 'Faire les courses', completed: false },
+{ id: 2, text: 'Apprendre React', completed: true },
+{ id: 3, text: 'Faire de l\'exercice', completed: false },
+]);
 
+const handleToggleCompleted = (taskId) => {
+    setTasks((prevTasks) =>
+      prevTasks.map((task) =>
+        task.id === taskId ? { ...task, completed: !task.completed } : task
+      )
+    );
+  };
+
+return (
+<div>
+ <Profile/> 
+<h1>Liste des Tâches</h1>
+<TaskList tasks={tasks} onToggleCompleted={handleToggleCompleted} />
+<GuestBookApp/>
+</div>
+);
+};
 export default App;

@@ -1,0 +1,25 @@
+.guest-book-app {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+  }
+  
+  .entries {
+    margin-top: 20px;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  li {
+    margin-bottom: 10px;
+  }
+  .blue-button {
+    background-color: blue;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+  }
